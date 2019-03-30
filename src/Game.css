@@ -1,0 +1,24 @@
+.container{
+    text-align: left;
+}
+
+.gameBoard{
+    width: 320px;
+    padding: 10px;
+}
+
+.boardField{
+    background-color: #CAF7E2;
+    width: 100px;
+    height: 100px;
+    float: left;
+    border: #282c34 2px solid;
+}
+
+.boardField:hover{
+    background-color: #58B09C;
+}
+
+.clearDiv{
+    clear:both;
+}
