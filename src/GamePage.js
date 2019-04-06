@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import './Game.css';
-
+import Popup from "reactjs-popup";
 
 class Game extends Component{
 
     constructor(props){
         super(props);
         this.state = {
-            turn: 1         // 1 - o     2 - x
+            turn: 1,         // 1 - o     2 - x
+            moves: 0,
+            openModal: false,
+            winner: 0
         }
     }
 
@@ -16,18 +19,69 @@ class Game extends Component{
             this.setState({turn: 2});
         else
             this.setState({turn: 1});
+
+        this.setState({moves: this.state.moves + 1});
     };
 
     setGameWinner = (who) => {
-        console.log('Winner: ' + who);
+
+        console.log('Wygrana');
+
+        let winner;
+
+        if(who == 1)
+            winner = "kółko";
+        else
+            winner = "krzyżyk"
+
+        this.setState({
+            openModal: true,
+            winner: winner
+        });
     };
+
 
 
     render(){
         return(
             <div className = "container">
                 <GameBoard turn = {this.state.turn} changeTurn = {this.changeTurn} setGameWinner = {this.setGameWinner} />
+                <InfoArea turn = {this.state.turn} moves = {this.state.moves} />
+
+                <Popup
+                    open = {this.state.openModal}
+                    modal
+                    closeOnDocumentClick>
+                    <div> Winner: {this.state.winner}  </div>
+
+                    <div className="btn">
+                        <button>Play again</button>
+                    </div>
+                    <div className="btn">
+                        <button>Exit</button>
+                    </div>
+                </Popup>
             </div>
+        );
+    }
+
+}
+
+class InfoArea extends Component{
+
+    constructor(){
+        super();
+    }
+
+    render(){
+        return(
+
+            <div className="infoPanel">
+               <div> <h2> Info </h2> </div>
+               <div><h3> Turn: {this.props.turn === 1 ?  'O' : 'X' } </h3> </div>
+               <div><h3> Moves: {this.props.moves} </h3> </div>
+            </div>
+
         );
     }
 
@@ -76,6 +130,8 @@ class GameBoard extends Component{
             || (this.state.gameState[0][0] === 2 && this.state.gameState[1][1] === 2 && this.state.gameState[2][2] === 2)
             || (this.state.gameState[2][0] === 2 && this.state.gameState[1][1] === 2 && this.state.gameState[0][2] === 2))
                 this.props.setGameWinner(2);
+
+
 
 
 

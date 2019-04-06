@@ -5,6 +5,7 @@
 .gameBoard{
     width: 320px;
     padding: 10px;
+    float: left;
 }
 
 .boardField{
@@ -22,3 +23,14 @@
 .clearDiv{
     clear:both;
 }
+
+.infoPanel{
+    float: left;
+    width: 320px;
+   padding: 10px;
+}
+
+.btn {
+    float: left;
+}
+
