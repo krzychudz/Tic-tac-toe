@@ -31,3 +31,14 @@
     transform: rotate(360deg);
   }
 }
+
+
+.LinkTitle{
+  color: white;
+  text-decoration: none;
+}
+
+.LinkTitle:hover{
+  color: gray;
+  text-decoration: none;
+}
