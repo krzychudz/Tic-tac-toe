@@ -1,0 +1,56 @@
+
+.container{
+    text-align: left;
+
+}
+
+.gameBoard{
+    width: 320px;
+    padding: 10px;
+    float: left;
+}
+
+.boardField{
+    background-color: #CAF7E2;
+    width: 100px;
+    height: 100px;
+    float: left;
+    border: #282c34 2px solid;
+}
+
+.boardField:hover{
+    background-color: #58B09C;
+}
+
+.clearDiv{
+    clear:both;
+}
+
+.infoPanel{
+    float: left;
+    width: 320px;
+   padding: 10px;
+}
+
+.btn {
+    width: 100%;
+    font-size: 20px;
+}
+
+.PopupContainer{
+    text-align: center;
+    width: 100%;
+}
+
+.Link{
+    color: black;
+    text-decoration: none;
+}
+
+.Link:hover{
+    color: gray;
+    text-decoration: none;
+}
+
+
+
